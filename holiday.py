@@ -41,15 +41,13 @@ hotel_loc = {
 # An empty dictionary for our trip
 trip = {}
 
-# A function to calculate flight costs
+# A function to calculate flight costs.
 def plane_cost(choice):
-    '''Return the place price formatted and printed as a sentence.'''
     trip[choice] = price
     return print(f"It will cost you {"{:,}".format(round(price, 2))} GBP to fly there.")
 
-# A function to calculate hotel stay
+# A function to calculate hotel stay.
 def hotel_cost(city_flight):
-    '''Calculates the hotel cost, multiply duration by night price'''
     global cost
     cost = hotel_loc[city_flight] * num_nights
     trip[num_nights] = cost
@@ -58,7 +56,6 @@ def hotel_cost(city_flight):
 
 # A function to calculate car rental cost
 def car_rental():
-    '''Calculate car rental cost, multiply days per cost per day.'''
     global rental
     rental = rental_days * 35.99
     trip[rental_days] = rental
@@ -67,7 +64,6 @@ Car rental for {rental_days} days will cost you {"{:,}".format(rental)} GBP")
 
 # A function to calculate the total cost of the holiday
 def holiday_cost():
-    '''Takes in plane, hotel and car costs, return sum as cost of holiday'''
     total = sum(trip.values())
     return print(f"\
 Your total cost will be\t{"{:,}".format(total)} GBP:\n\
